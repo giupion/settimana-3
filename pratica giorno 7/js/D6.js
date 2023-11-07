@@ -239,7 +239,7 @@ let titoli=movies.map((movies)=>console.log(movies.Title))
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-let millenium=movies.filter((movies)=>console.log(movies.Title))
+let millenium=movies.filter((movies)=>console.log(movies.Year))
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
