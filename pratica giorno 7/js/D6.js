@@ -53,17 +53,18 @@ console.log(pippo)
 
 let array3=[1,3];
 
-array3.forEach((elemento1,elemento2) =>console.log(elemento1+elemento2))
+array3.forEach((valore,indice) =>console.log(valore+indice*valore))
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 let array4=[1,4]
-array4.reduce((totale,valoreCorrente)=>console.log (valoreCorrente+totale))
-
+let totale=array4.reduce((totale,valoreCorrente)=> valoreCorrente+totale)
+console.log(totale)
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+let somman=randomarray.map((randomarray,n)=>console.log(randomarray+n))
 
 
 
@@ -71,10 +72,13 @@ array4.reduce((totale,valoreCorrente)=>console.log (valoreCorrente+totale))
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+let stringheArray=["gimmi","pino","aldo"]
 
+let zoe=stringheArray.map((stringheArray)=>console.log(stringheArray.length))
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+let dispari=randomarray.forEach(randomarray,indice)=>()
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
