@@ -78,7 +78,21 @@ let zoe=stringheArray.map((stringheArray)=>console.log(stringheArray.length))
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
-let dispari=randomarray.forEach(randomarray,indice)=>()
+function oddnumbers(numero){
+  let box=[];
+ 
+   
+  
+for(i=0;i<numero;i++){
+  let randomico=Math.floor(Math.random()*98)
+  if(randomico%2!==0){
+  scatola.push(randomico)
+  }
+  else{break;}
+}
+return scatola
+}
+
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -200,18 +214,32 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 
+
+let vecchio= "2023";
+let filmPiuVecchio= null;
+
+let piuVecchio= movies.forEach((valore) => {
+  if(valore.Year<vecchio){
+    vecchio = valore.Year;
+    filmPiuVecchio = valore.Title;
+  }
+});
+
+
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
+let numerofilm=movies.forEach((valore,indice)=>console.log(indice))
+
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
-
+let titoli=movies.map((movies)=>console.log(movies.Title))
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-
+let millenium=movies.filter((movies)=>console.log(movies.Title))
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
