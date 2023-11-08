@@ -7,9 +7,9 @@ let newStringa="";
 function concatenaStringa(Stringa1,Stringa2){
 Stringa1.substring(0,2)
 
-Stringa2.substring(Stringa2.length-2,Stringa2.length)
+Stringa2.substring(Stringa2.length-3,Stringa2.length)
 
-newStringa=Stringa1.substring(0,1)+Stringa2.substring(Stringa2.length-2,Stringa2.length).toUpperCase();
+newStringa=Stringa1.substring(0,2).toUpperCase()+Stringa2.substring(Stringa2.length-3,Stringa2.length).toUpperCase();
 return newStringa;
 }
 
@@ -28,7 +28,7 @@ function random100(array){
    
   
 for(i=0;i<array;i++){
-  let randomico=Math.floor(Math.random()*101)
+  let randomico=Math.floor(Math.random()*100)
   scatola.push(randomico)
  
 }
@@ -40,32 +40,42 @@ console.log(randomarray);
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+
+
+
+//my arr come paramentro , prendi elemento array e filtralo secondo condizione
+const arrPari=(myArr)=>{return myArr.filter(elemento=>elemento%2===0)}
+//posso omettere parentesi graffe se una solo istruzione
 let pippo=randomarray.filter(numeriPari=>numeriPari % 2===0)
 console.log(pippo)
-
-
-
-
-
+console.log(arrPari([2,5,6,7,8,9])) //passo array che voglio filtrare
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
 let array3=[1,3];
 
-array3.forEach((valore,indice) =>console.log(valore+indice*valore))
-
+const sommaNumeri=function(arr){
+  let somma=0;
+  arr.forEach(valore =>somma+=valore)
+return somma;}
+console.log(sommaNumeri(array3))
+//const sommaNUmeri=function(arr){let somma=0;
+//array3.forEach(ele=>console.log(somma+=ele))}
+//forEach itera ogni elemento array e non ritorna nulla
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-let array4=[1,4]
-let totale=array4.reduce((totale,valoreCorrente)=> valoreCorrente+totale)
-console.log(totale)
+let array4=[1,4]//o valore corrente dell'accumulatore
+let t=array4.reduce((totale,valoreCorrente)=> (totale+=valoreCorrente))
+console.log(t)
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 let somman=randomarray.map((randomarray,n)=>console.log(randomarray+n))
-
+//constaddN=function (arr,n){
+//return arr.map(ele=>ele,n)}
+//console.log(addN(arr,n))
 
 
 /* ESERCIZIO 7 (map)
@@ -78,21 +88,26 @@ let zoe=stringheArray.map((stringheArray)=>console.log(stringheArray.length))
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
-function oddnumbers(numero){
-  let box=[];
- 
-   
-  
-for(i=0;i<numero;i++){
-  let randomico=Math.floor(Math.random()*98)
-  if(randomico%2!==0){
-  scatola.push(randomico)
-  }
-  else{break;}
-}
-return scatola
-}
 
+//const getDispari=()=>{let arr=[];
+//for(let i=0;i<100;i++){
+
+//}}
+
+
+
+
+function oddnumbers(){
+  let box=[];
+for(i=0;i<100;i++){
+ // let randomico=Math.floor(Math.random()*100)
+  if(i%2!==0){
+  box.push(i)
+  }
+}
+return box
+}
+console.log(oddnumbers())
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -239,10 +254,14 @@ let titoli=movies.map((movies)=>console.log(movies.Title))
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-let millenium=movies.filter((movies)=>console.log(movies.Year))
+let millenium=movies.filter((movies)=> (movies.Year))
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+
+
+let gimmi=movies.reduce((totale,valoreCorrente)=> totale+valoreCorrente.Year)
+console.log()
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
