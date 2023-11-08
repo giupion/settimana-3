@@ -280,7 +280,7 @@ let searchFilm=function(arr,id){
 let searchIndexfilm=function(arr,year)
 {return arr.findIndex(film=>film.Year===year)}
 
-console.log(searchFilm())
+console.log(searchFilm(movies))
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
