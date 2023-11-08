@@ -37,10 +37,10 @@
   <body>
     <div>
       <h1 id="titolo">Questo è il titolo della pagina</h1>
-      <h2 class="sottotitolo">Questo è il sottotitolo della pagina</h2>
+      <h2 >Questo è il sottotitolo della pagina</h2>
     </div>
 
-    <div>
+    <div id="primodiv">
       <hr />
 
       <ul id="firstList">
@@ -57,12 +57,13 @@
 
       <a href="https://epicode.com/it/">Questo link porta al sito di Epicode</a>
 
-      <div>
-        <p>Questo testo è un placeholder per gli esercizi</p>
+      <div >
+        <p  >Questo testo è un placeholder per gli esercizi</p>
+        
       </div>
     </div>
 
-    <div>
+    <div >
       <p>Anche questo testo è per gli esercizi</p>
       <h2 id="changeMyColor" style="color: #ff00d6">
         Apri questa pagina con VSCode per scoprire gli esercizi
@@ -74,67 +75,141 @@
     <footer>
       <h3>
         DOM Manipulation is super
-        <a
+        <a 
           href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents"
           >AWESOME!</a
         >
       </h3>
     </footer>
-    <script src="js/javas.js">
+    <script>
       /* ESERCIZIO 1
        Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
     */
-
-      const changeTitle = function () {}
+ 
+    console.dir(window.document)
+      const changeTitle = function () {
+        let h1 = window.document.getElementById("titolo")
+ let gi=h1.innerText="giuseppe"
+return gi
+      }
+     console.log( changeTitle())
 
       /* ESERCIZIO 2
        Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
     */
 
-      const addClassToTitle = function () {}
+      const addClassToTitle = function (stringa) {
+
+        let giun=document.querySelector("h1")
+       let giun2= giun.classList.add("myHeading")
+        return giun2;
+      }
+     
+     
+     
+       addClassToTitle()
+
 
       /* ESERCIZIO 3
        Scrivi una funzione che cambi il testo dei p figli di un div
       */
 
-      const changePcontent = function () {}
 
+      const changePcontent = function () {
+        let change = document.querySelectorAll("div > p")
+       let change2= change.forEach(p => {
+          p.innerText = "testo cambiato con java"
+        });
+       
+       }
+    changePcontent()
+
+       
+            
+    
+     
       /* ESERCIZIO 4
        Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
       */
 
-      const changeUrls = function () {}
+     // const changeUrls = function () 
+     //let aHref = document.querySelectorAll(':not (footer a)')
 
+     //let change2= aHref.forEach(href => {
+       //   href.innerText = "https://www.google.com"
+       // });
       /* ESERCIZIO 5
        Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
     */
 
-      const addToTheSecond = function () {}
+      const addToTheSecond = function () {
+
+let li=document.createElement("li")
+            li.innerText = "4th";
+           return document.querySelector("#secondList").appendChild(li);
+          };
+
+          console.log(addToTheSecond());
+      
 
       /* ESERCIZIO 6
        Scrivi una funzione che aggiunga un paragrafo al primo div
     */
 
-      const addParagraph = function () {}
+      const addParagraph = function () {
+
+        let p=document.createElement("p")
+        return document.querySelector("#primodiv").appendChild(p);
+      }
+      console.log(addParagraph());
 
       /* ESERCIZIO 7
        Scrivi una funzione che faccia scomparire la prima lista non ordinata
     */
 
-      const hideFirstUl = function () {}
+    const hideFirstUl = function () {
+        let ul = document.querySelector("#firstList");
+
+        // display none ???
+        ul.style.visibility = "hidden";
+      }
+      hideFirstUl();
+
 
       /* ESERCIZIO 8 
        Scrivi una funzione che renda verde il background di ogni lista non ordinata
       */
 
-      const paintItGreen = function () {}
+      const paintItGreen = function () {
+      let ug=document.querySelectorAll("ul")
+    let background=ug.forEach(li=>{li.style.backgroundColor = "green"});
+       
+       
+    }
+    paintItGreen()
+
+      /*const paintItGreen = function () {
+        let background = document.querySelectorAll("ul")
+        for(let i = 0; i < background.length; i++){
+          background[i].style.backgroundColor = "green"
+        }
+      }
+      paintItGreen()*/
 
       /* ESERCIZIO 9
        Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
       */
 
-      const makeItClickable = function () {}
-
+      const makeItClickable = function () {
+        let h1click = document.querySelectorAll("h1");
+      
+      let spaccalettera=h1click.innerText = h1click.innerText.slice(0, -1)
+        return spaccalettera;
+        }
+         //partendo dalla fine , si ferma e boom. cancella ultima lettera
+      
+      
+     console.log( makeItClickable())
       /* ESERCIZIO 10
        Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
       */
