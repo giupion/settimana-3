@@ -230,23 +230,23 @@ const movies = [
 */
 
 
-let vecchio= "2023";
-let filmPiuVecchio= null;
+const getFilmVecchio=function(arr){
+  let old=arr[0]; //metto un film qualsiasi confronto e se è piu vecchio lo sostituisci
+  arr.forEach(film=>{
 
-let piuVecchio= movies.forEach((valore) => {
-  if(valore.Year<vecchio){
-    vecchio = valore.Year;
-    filmPiuVecchio = valore.Title;
-  }
-});
-
+if(film.Year<old.Year){old=film}}) 
+return old};
+console.log(getFilmVecchio(movies));
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
-let numerofilm=movies.forEach((valore,indice)=>console.log(indice))
+//let numerofilm=movies.forEach((valore,indice)=>console.log(indice))
 
+
+let countFilm=(arr)=>arr.length
+console.log("numero film"+countFilm(movies))
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
@@ -254,18 +254,33 @@ let titoli=movies.map((movies)=>console.log(movies.Title))
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-let millenium=movies.filter((movies)=> (movies.Year))
+//passo un array
+function filmmillennio(arr)
+{return arr.filter(film=>film.Year>=2000)}
+
+console.log(filmmillennio(movies))
+//let gimmi=movies.reduce((totale,valoreCorrente)=> totale+valoreCorrente.Year)
+console.log()
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
-*/
-
-
-let gimmi=movies.reduce((totale,valoreCorrente)=> totale+valoreCorrente.Year)
-console.log()
-
+*///sono stringhe si risolve con number ,p arse int o + davanti per convertire
+let sumyear=(arr)=>{
+  return arr.reduce((acc,film)=>acc+Number(film.Year),0)}
+console.log(sumyear(movies))
+//con movies richiamo array!
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+//che passo io id se id =imdb si lo ritorna
+let searchFilm=function(arr,id){
+  return arr.find (film=>film.Imdb===id)
+  
+}
+
+let searchIndexfilm=function(arr,year)
+{return arr.findIndex(film=>film.Year===year)}
+
+console.log(searchFilm())
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
