@@ -4,34 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css"/>
+    
+    
     <title>Document</title> 
     
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-      }
-
-      body div,
-      footer {
-        padding: 1rem;
-      }
-
-      footer {
-        padding: 1rem;
-        background-color: black;
-        color: white;
-      }
-
-      .myHeading {
-        color: #ff00d6;
-      }
-    </style>
+    
   </head>
 
   <body>
@@ -81,25 +59,36 @@
         >
       </h3>
     </footer>
+
     <script>
-      /* ESERCIZIO 1
+    /* ESERCIZIO 1
        Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
     */
  
     console.dir(window.document)
-      const changeTitle = function () {
-        let h1 = window.document.getElementById("titolo")
- let gi=h1.innerText="giuseppe"
-return gi
-      }
-     console.log( changeTitle())
+
+      //const changeTitle = function () {
+        //let h1 = window.document.getElementById("titolo")
+// let gi=h1.innerText="giuseppe"
+//return gi
+    // }
+     
+
+     const changeTitle = function () {
+       //let h1=document.querySelector("div h1")
+       //h1 dovrebbe esserci uno solo , con selector ne scelgo uno un h1 figlio di div
+    //cambio testo
+    document.querySelector('div> h1').innerText="qualcos'altro";   
+    }
+     
+    changeTitle()
 
       /* ESERCIZIO 2
        Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
     */
 
       const addClassToTitle = function (stringa) {
-
+//selezione nodo e applico seconda riga la classe myheading
         let giun=document.querySelector("h1")
        let giun2= giun.classList.add("myHeading")
         return giun2;
@@ -116,11 +105,12 @@ return gi
 
 
       const changePcontent = function () {
+        //seleziono i paragrafi figli di un div tutti  i p..qundi selector all
         let change = document.querySelectorAll("div > p")
        let change2= change.forEach(p => {
           p.innerText = "testo cambiato con java"
         });
-       
+       //qualuncque elemento ...capito p puo essere anche pippo 
        }
     changePcontent()
 
@@ -132,21 +122,27 @@ return gi
        Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
       */
 
-     // const changeUrls = function () 
-     //let aHref = document.querySelectorAll(':not (footer a)')
-
-     //let change2= aHref.forEach(href => {
-       //   href.innerText = "https://www.google.com"
-       // });
+     const chageUrls=function(){
+      const link=document.querySelectorAll('a:not(footer a)') //seleziona tutti gli a non presenti nel footer
+      //prendi ogni singolo link e lo stampi di rosso
+      link.forEach(l=>l.href="https://www.google.com")
+     
+      //non posso applicare uno style a una node list
+     console.log(link)//stampa e si vedono i nodi i link che ci sono
+     }
+     chageUrls()
       /* ESERCIZIO 5
        Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
     */
 
       const addToTheSecond = function () {
-
+const ul=document.querySelector('ul#secondList') //seleziono nodo radice
+//seleziono ul  e stamap sempre
+console.log(ul)
 let li=document.createElement("li")
+//creato elemento lo devo appendere
             li.innerText = "4th";
-           return document.querySelector("#secondList").appendChild(li);
+           ul.appendChild(li);
           };
 
           console.log(addToTheSecond());
@@ -157,9 +153,10 @@ let li=document.createElement("li")
     */
 
       const addParagraph = function () {
+//seleziono primo div 
 
         let p=document.createElement("p")
-        return document.querySelector("#primodiv").appendChild(p);
+        document.querySelector("#primodiv").appendChild(p);
       }
       console.log(addParagraph());
 
@@ -172,6 +169,8 @@ let li=document.createElement("li")
 
         // display none ???
         ul.style.visibility = "hidden";
+        //ul.remove() //toglie
+        //ul.style.display="none"
       }
       hideFirstUl();
 
@@ -182,19 +181,14 @@ let li=document.createElement("li")
 
       const paintItGreen = function () {
       let ug=document.querySelectorAll("ul")
+      //prendo tutte le liste e le itero...itero ogni elemento della lista e metto per ogni elemento applico style.background.color
     let background=ug.forEach(li=>{li.style.backgroundColor = "green"});
        
        
     }
     paintItGreen()
 
-      /*const paintItGreen = function () {
-        let background = document.querySelectorAll("ul")
-        for(let i = 0; i < background.length; i++){
-          background[i].style.backgroundColor = "green"
-        }
-      }
-      paintItGreen()*/
+     
 
       /* ESERCIZIO 9
        Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
@@ -246,6 +240,9 @@ let li=document.createElement("li")
     */
 
       const deleteVowels = function () {}
+
+
+      
     </script>
   </body>
 </html>
