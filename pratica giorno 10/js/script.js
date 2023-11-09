@@ -63,7 +63,7 @@ let text = document.createTextNode(input.value)
  //creo nodo di testo  individuando input value
 li.appendChild(text)
 li.style.listStyleType="none";
- if(input.value===""){return;}
+ if(input.value==="")return;
  const buttondelete=document.createElement("button")
  buttondelete.className="cancellali"
  li.appendChild(buttondelete);//appendo il testo a li
@@ -91,8 +91,11 @@ function eliminabottone(event){
    
     
     ul.removeChild(li)
+    input.value=""
     
     }
+
+    
 
 //ul.removeChild(li)
    
