@@ -48,9 +48,9 @@ console.log(form.appendChild(button))
 
 
 //console.log(ul.appendChild(li))
-button.addEventListener('click',aggiungi);
+button.addEventListener('click',aggiungitodo);
 
-function aggiungi(event){
+function aggiungitodo(event){
     
     event.preventDefault();
     let ul=document.createElement("ul")
@@ -64,16 +64,27 @@ let text = document.createTextNode(input.value)
 li.appendChild(text)
 li.style.listStyleType="none";
  if(input.value===""){return;}
-    const buttondelete=document.createElement("button")
-    buttondelete.className="cancellali"
-    li.appendChild(buttondelete);//appendo il testo a li
-    buttondelete.style.margin="2px"
+ const buttondelete=document.createElement("button")
+ buttondelete.className="cancellali"
+ li.appendChild(buttondelete);//appendo il testo a li
+ buttondelete.style.margin="2px"
 buttondelete.innerText="-"
-buttondelete.type="delete"
+buttondelete.type="delete";
+
+li.addEventListener('click',eliminadallalista);
+
+function eliminadallalista(event){
+    
+    event.preventDefault();
+   
+    //ul.removeChild(li)
+    li.style.textDecoration="line-through";
+    
     }
 
 
-
+   
+}
 
 
 
