@@ -43,7 +43,7 @@
 
     <div >
       <p>Anche questo testo è per gli esercizi</p>
-      <h2 id="changeMyColor" style="color: #ff00d6">
+      <h2 onclick="changeColorWithRandom()" id="changeMyColor"  style="color: #ff00d6">
         Apri questa pagina con VSCode per scoprire gli esercizi
       </h2>
     </div>
@@ -223,36 +223,161 @@ let li=document.createElement("li")
       const generateTable = function () {
 
 //seleziono nodo radice che è un div
-let divtablearea=document.querySelector('#tableare');
-console.log(divtablearea)
+let divtablearea=document.querySelector('#tableArea');
+//creo una tabella
+
+let table=document.createElement('table') //<table> stessa cosa
+table.style.border='1px solid black'
+  let tr=document.createElement('tr')//creo righe
+let th1=document.createElement('th1')//creo intestazione
+th1.innertText="immagine"
+let th2=document.createElement('th2')
+th2.innertText="nomeProdotto"
+let th3=document.createElement('th3')
+th3.innertText="Quantita"
+let th4=document.createElement('th4')
+th4.innertText="Prezzo"
+
+tr.appendChild(th1) //dentro tr metto th!
+tr.appendChild(th2)
+tr.appendChild(th3)
+tr.appendChild(th4)
+
+table.appendChild(tr)//dentro table metto tr,come push
+
+divtablearea.appendChild(table) //metto dentro <table>
+
+  for(let i=0;i<5; i++){
+    let tr=document.createElement('tr');
+    let td1=document.createElement('td')
+   // td1.innerHTML=<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fit%2Fimmagine%2Flove&psig=AOvVaw3dTwotmwNigFNLJvxtYfR-&ust=1699608290081000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjW053MtoIDFQAAAAAdAAAAABAE"/>
+    td1.innerText="test"
+    tr.appendChild(td1)
+    
+    let td2=document.createElement('td')
+    td2.innerText="test"
+    tr.appendChild(td2)
+    
+    let td3=document.createElement('td')
+    td3.innerText="test"
+    tr.appendChild(td3)
+    
+    let td4=document.createElement('td')
+    td4.innerText="test"
+    tr.appendChild(td4)
+    table.appendChild(tr)
+
+    
+    
+  }
+
+divtablearea.appendChild(table)
+//let body=divtablearea.parentNode;
+//console.log(body)
+//console.log(divtablearea)
+//console.dir(divtablearea) //child legth =0 non ha figli, parent node, parent element, intende tutto anche semplice testo, elementi che non sono nodi.
       }
       generateTable() //invoca altrimenti non vedi il console.log
+      
+      
+      //parentnode,body
       /* ESERCIZIO 12
        Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
     */
 
-      const addRow = function () {}
 
+
+      const addRow = function (nome,quantita,qty,prezzo) {
+        
+    tr.appendChild(td1)
+    
+    let td2=document.createElement('td')
+    td2.innerText=nome
+    tr.appendChild(td2)
+    
+    let td3=document.createElement('td')
+    td3.innerText=qty
+    tr.appendChild(td3)
+    
+    let td4=document.createElement('td')
+    td4.innerText=prezzo
+    tr.appendChild(td4)
+//selezione tabell dentro tablearea
+    let table=document.querySelector('#tableArea table')
+    table.appendChild(tr) //appendo riga chiamata
+
+      }
+addRow('nuovo prod',3,'250,00 euro')
       /* ESERCIZIO 14
       Crea una funzione che nasconda le immagini della tabella quando eseguita
     */
 
-      const hideAllImages = function () {}
+      const hideAllImages = function () {
 
+
+        const images=document.querySelectorAll('#tableArea table img')
+        images.forEach(img=>img.style.display="none")
+        console.log((images))
+      }
+      hideAllImages()
       /* EXTRA ESERCIZIO 15
       Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
     */
 
-      const changeColorWithRandom = function () {}
+      const changeColorWithRandom = function () {
 
+        let ele=document.querySelector('#changeMyColor');
+        let red=Math.round(Math.random()*255)
+        let green=Math.round(Math.random()*255)
+        let blue=Math.round(Math.random()*255)
+ele.style.color=`rgb(${red},${green},${blue})`
+      }
+      changeColorWithRandom()
       /* EXTRA ESERCIZIO 16
       Crea una funzione che elimini le vocali da ogni elemento testuale della pagina (puoi aiutarti con i nuovi metodi degli array di ES6)
     */
+    const deleteVowels = function () {
+    let all = document.querySelectorAll("h1, h2, h3, li, a, p, th, td")
+    all.forEach(node => {
+        //console.log(node.innerText)
+        let arrChar = [...node.innerText]
+        //console.log(arrChar)
+        let arrCharFilter = arrChar.filter(char => {
+            char = char.toLowerCase();
+            return char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'u' && char !== 'y'
+        })
+        //console.log(arrCharFilter)
+        let testo = arrCharFilter.join("")
+        //console.log(testo)
 
-      const deleteVowels = function () {}
+        node.innerText = testo
+
+        // Soluzione 2
+        /* let txt = [...node.innerText].filter(char => {
+            char = char.toLowerCase();
+            return char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'u' && char !== 'y'
+        }).join("") 
+        node.innerText = txt*/
+        //console.log(txt)
+    })
+};
+
+deleteVowels()
+    
 
 
-      
+      /*
+let all=document.querySelectorAll("h1,h2,a,p,li,h3,th,td")
+let vocali=['a','e','i','o','u','y']
+all.forEach(node=>{let txt=[...node.innerText].filter(char=>console.log(char))})
+//prendo tutti i nodi, prendo il testo e lo filtro per carattere stampo.
+//mi devo ritornare i caratteri che non sono vocali, filtrare array di caratteri, filter solo su array
+
+return char!=='a'&&  char !=='e' && char !=='i' &&char !=='o' && char !=='u'}).join("")
+console.log(txt)
+})
+//rislavare nell'innertext=testo
+*/
     </script>
   </body>
 </html>
