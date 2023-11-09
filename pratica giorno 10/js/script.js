@@ -77,12 +77,24 @@ function eliminadallalista(event){
     
     event.preventDefault();
    
-    //ul.removeChild(li)
+    
     li.style.textDecoration="line-through";
     
     }
 
 
+    buttondelete.addEventListener('click',eliminabottone);
+
+function eliminabottone(event){
+    
+    event.preventDefault();
+   
+    
+    ul.removeChild(li)
+    
+    }
+
+//ul.removeChild(li)
    
 }
 
