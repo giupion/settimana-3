@@ -1,0 +1,17 @@
+body {
+    margin: 0 auto;
+    width:100%;
+    text-align: center;
+   background-image: radial-gradient(circle at 12.5% 12.5%, #ffd100 0, #ffbf00 12.5%, #ffaa00 25%, #fa9400 37.5%, #ed7c0c 50%, #dd6518 62.5%, #cf5120 75%, #c23f26 87.5%, #b7302c 100%);
+   font-family: 'Poppins', sans-serif;
+
+}
+
+  h1{
+    margin-top: 0;
+    background-image: radial-gradient(circle at 17.16% 17.16%, #ff00ff 0, #d500ff 16.67%, #a403ff 33.33%, #6d0ced 50%, #250fd3 66.67%, #0011ba 83.33%, #0012a3 100%);}
+
+  input{
+    margin: 0 auto;
+    
+    width:85%}
