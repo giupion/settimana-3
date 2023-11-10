@@ -1,6 +1,7 @@
 
+
 function appendicelle() {
-    let tombola = document.querySelector('#tombola')
+    let tab = document.querySelector('#tabellone')
 
 
     //querySelector fuori dal for
@@ -14,7 +15,7 @@ function appendicelle() {
         let Cella = document.createElement('div');
         //metti numeri nella cella
         Cella.innerText = [i];
-        tombola.appendChild(Cella);//appendi celle al div
+        tab.appendChild(Cella);//appendi celle al div
         Cella.className = 'celle'; //applica classe alle celle
 
 
@@ -28,31 +29,29 @@ function appendicelle() {
 appendicelle()
 
 
-let button = document.querySelector("button")
-button.type = "submit";
-button.innerText = "Genera un numero casuale"
-button.style.margin = "5px"
-button.addEventListener('click', estraiNumber);
-
-
-function estraiNumber() {
 
 
 
-    let numerestratto = Math.round(Math.random() * 77);
-    console.log(numerestratto)
-    console.dir(numerestratto)
+
+
+function estrainumero() {
+    let button = document.querySelector('button')  //selezionati il button
+    button.addEventListener('click', () => {                                //crea una arrow con il addeventlistner ed i vari math random ecc..
+        let numeroestratto = (Math.ceil(Math.random()*76))
+        let numeriselezionati = document.querySelectorAll('#tabellone div')
+        numeriselezionati.forEach(cella => {
+        numeriselezionati[numeroestratto-1].style.backgroundColor = "blue";    //applica il colore che desideri (il -1 perchè l'array parte da 0 )
+        })
+    })
 }
-
-estraiNumber()
-
+estrainumero() 
 
 
-function corrispondenzaRandomCelle() {
 
-    
 
-}
+
+
+
 
 
 
