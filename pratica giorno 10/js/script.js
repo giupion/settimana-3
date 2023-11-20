@@ -53,24 +53,16 @@ button.addEventListener('click',aggiungitodo);
 function aggiungitodo(event){
     
     event.preventDefault();
-    //let ul=document.createElement("ul")
-    //let li=document.createElement("li")
-    //console.log(form.appendChild(ul))
-//console.log(ul.appendChild(li))
+    let ul=document.createElement("ul")
+    let li=document.createElement("li")
+    console.log(form.appendChild(ul))
+console.log(ul.appendChild(li))
 
 let input = document.querySelector("input") //seleziono bottone
 let text = document.createTextNode(input.value)
  //creo nodo di testo  individuando input value
-//li.appendChild(text)
+li.appendChild(text)
 li.style.listStyleType="none";
-let task=(input.value.trim) //con trim pulisci e togli spazioprima
-if(task.length>2){
-    let li=document.createElement("li")
-li.innerText=task;
-let ul=document.querysSelector('ul')
-ul.appendChild(li)
-input.value="" }//pulishi il campo
-taskcomplete()
  if(input.value==="")return;
  const buttondelete=document.createElement("button")
  buttondelete.className="cancellali"
@@ -82,9 +74,9 @@ buttondelete.type="delete";
 li.addEventListener('click',eliminadallalista);
 
 function eliminadallalista(event){
-    //conviene fare con classe
+    
     event.preventDefault();
-   //if(//è presente lo style)
+   
     li.style.color = "red"
     li.style.textDecoration="line-through";
     
@@ -108,35 +100,3 @@ function eliminabottone(event){
 //ul.removeChild(li)
    
 }
-//let input=documenti.queryselector("form input")
-//console.dir(input)vedi dove ha scritto ciao su value!)
-
-
-function taskcomplete(){
-
-    let li=document.querySelectorAll("ul");
-    console.log(li)
-    
-    for(let i=0;i>li.length;i++)
-    //this evento che ha scatenato oggetto this.className stampi valore elemento cliccato
-    {li[i].addEventListener('click',function(){this.classList.toggle})
-}}
-   
-//applicare una classe this.className=completato
-toggle//clicco metto classe e clicco tolgo classe
-
-
-//e.target.className nodo che ha scatenato evento //ci applica una classe completato
-//se stampi  e.target, vedi che ha proprieta target cioe li
-
-//e.target.classsNme=e.target.classNmae==='completato' ? '' : 'completato'
-//se ce completato lo metto se lo tolgo ecco come si fa
-
-//li.innerHtml=<span>+task</span>//contenere task con span
-//let span=document.createlement('span)
-//valore del task messo dentro lo span
-
-
-//btn.addeventlistener(('click,(e')=>{console.log(e.target.parentNode)
-//let li=e.targetprantnode})
-//se voglio sapere il parent del bottone
